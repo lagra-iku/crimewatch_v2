@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% block title %}Case Details{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="../../static/src/style.css">
+<div class="container-fluid p-6">
+    <h1 class="fs-3 mt-5 mb-3 text-decoration-underline">{% if form.instance.pk %}Edit{% else %}Open a New{% endif %} Case</h1>
+    <form method="post" enctype="multipart/form-data" class="needs-validation">
+        {% csrf_token %}
+        <div class="row">
+        <div class="col-6">
+            <div class="row g-1 my-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_case_number">Case Number:</label>
+                </div>
+                <div class="col-md-8 col-lg-9">
+                    {% if form.case_number.field.widget.attrs.readonly %}
+                    <p class="text-uppercase">{{ form.case_number.value }}</p>
+                    {% else %}
+                        {{ form.case_number }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_event_date">Event Date:</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.event_date }}
+                </div>
+            </div>
+            <div class="row  mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_crime_type">Crime Type:</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.crime_type }}
+                </div>
+            </div>
+            <div class="row mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_location_of_crime">Location of Crime</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.location_of_crime }}
+                </div>
+            </div>
+            <div class="row mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_case_description">Case Description:</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.case_description }}
+                </div>
+            </div>
+            <div class="row mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_associated_criminals">Associated Criminals:</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.associated_criminals }}
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="col-6">
+            <div class="row mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_associated_case_files">Associated Case Files:</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.associated_case_files }}
+                </div>
+            </div>
+            <div class="row mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_witnesses">Witnesses:</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.witnesses }}
+                </div>
+            </div>
+            <div class="row mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_known_suspects">Known Suspects</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.known_suspects }}
+                </div>
+            </div>
+            <div class="row mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_arrested_suspects">Arrested Suspects</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.arrested_suspects }}
+                </div>
+            </div>
+            <div class="row mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_case_status">Case Status</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.case_status }}
+                </div>
+            </div>
+            <div class="row mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_pictures_of_evidence">Pictures of Evidence</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.pictures_of_evidence }}
+                </div>
+            </div>
+            <div class="row mb-1 align-items-start">
+                <div class="col-md-4 col-lg-3">
+                    <label class="form-label fw-bold" for="id_case_officer">Case Officer</label>
+                </div>
+                <div class="col-md-8 col-lg-9 rounded-top">
+                    {{ form.case_officer }}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-6">
+
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <button type="submit" class="btn bg-dark-teal btn-lg float-end">{% if form.instance.pk %}Update{% else %}Create{% endif %}</button>
+        </div>
+        
+    </div>
+    
+    </form>
+</div>
+{% endblock %}

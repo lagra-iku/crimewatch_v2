@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Case Details{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Case {{ case.case_number }}</h1>
+    <p><strong>Event Date:</strong> {{ case.event_date }}</p>
+    <p><strong>Event Time:</strong> {{ case.event_time }}</p>
+    <p><strong>Crime Type:</strong> {{ case.crime_type }}</p>
+    <p><strong>Location of Crime:</strong> {{ case.location_of_crime }}</p>
+    <p><strong>Case Description:</strong> {{ case.case_description }}</p>
+    <p><strong>Associated Criminals:</strong> {{ case.associated_criminals }}</p>
+    <p><strong>Case Status:</strong> {{ case.case_status }}</p>
+    <p><strong>Case Officer:</strong> {{ case.case_officer }}</p>
+    <a class="btn btn-primary" href="{% url 'case_edit' case.pk %}">Edit</a>
+    <a class="btn btn-secondary" href="{% url 'case_list' %}">Back to list</a>
+</div>
+{% endblock %}

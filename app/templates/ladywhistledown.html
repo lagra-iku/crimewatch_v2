@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LordWhistledown</title>
+    <style>
+        html, body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(22, 4, 4);
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        header, footer, .content {
+            flex: 0 0 auto; /* Ensure header and footer don't take full space */
+        }
+        .content {
+            flex: 1 0 auto; /* Allow content to grow and fill available space */
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            background-color: black;
+            padding: 20px;
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 0px 0px 10px black;
+        }
+        p {
+            color: black;
+            background-color: darkgreen;
+            padding: 20px;
+            margin: 0;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        header{
+            text-align: right;
+            color: blanchedalmond;
+            background-color: black;
+            padding: 20px;
+            margin: 0;
+            width: 100%;
+            text-transform: uppercase;
+            text-shadow: 0px 0px 10px black;
+            text-decoration: solid;
+            font-size: large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        footer{
+            text-align: center;
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            width: 100%;
+            padding: 20px;
+            margin: 0;
+        }
+        .header{
+            text-align: right;
+            color: white;
+            background-color: black;
+            padding: 20px;
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 0px 0px 10px black;
+        }
+    </style>
+    <div class="header">
+    <header>
+        <h1>Welcome to Oga Whistledown Page</h1>
+    </header>
+    </div>
+</head>
+<body>
+    <div class="content">
+        <h1>Oga Whistledown</h1>
+        <p>
+            Dearest gentle reader, I am Oga Whistledown. I am the author<br />
+            of a society paper that reports on the latest news and scandals<br />
+            in Hollywood and Nollywood high society and occasionally Bollywood,<br />
+            if I feel silly. I am a mysterious figure who is never seen in public,<br />
+            but my words have the power to make or break reputations.<br />
+            I am always on the lookout for the next juicy piece of gossip, so if<br />
+            you have any news to share, please do not hesitate to contact me.<br />
+            Yours truly, Oga Whistledown.
+        </p>
+    </div>
+    <footer>
+        <p>Powered By Lord Whistledown Copyright 2024 {{ date }}</p>
+    </footer>
+</body>
+</html>
