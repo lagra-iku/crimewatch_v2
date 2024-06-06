@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Search{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <h1 class="fw-bold fs-2 mt-3">Search Results for "{{ query }}"</h1>
+    <div class="row">
+        <h2 class="fs-2 mt-3">Criminals</h2>
+            {% for criminal in criminals %}
+            <div class="row border text-white m-auto p-1">
+                <p><span class="fw-bold">Name:</span> {{ criminal.first_name }} {{ criminal.surname }}</p>
+                <p><span class="fw-bold">Aliases:</span> {{ criminal.known_aliases }}</p>
+                <a href="{% url 'criminal_detail' criminal.id %}">View Details</a>
+            </div>
+            {% empty %}
+            <div class="row border text-white m-auto p-1">
+                <p>No criminal found</p>
+            </div>
+            {% endfor %}
+    </div>
+    <div class="row">
+        <h2 class="fs-2 mt-3">Cases</h2>
+            {% for case in cases %}
+            <div class="row border text-white m-auto p-1">
+                <p><span class="fw-bold">Case Number:</span> {{ case.case_number }}</p>
+                <p><span class="fw-bold">Case Description:</span> {{ case.case_description }}</p>
+                <a href="{% url 'case_update' case.id %}">View Details</a>
+            </div>
+            {% empty %}
+            <div class="row border text-white m-auto p-1">
+                <p>No case found</p>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Case Page{% endblock %}
+{% block content %}
+<div class="container-fluid p-5">
+    <div class="row mb-5">
+        <div class="col-6">
+            <h1 class="fw-bold fs-2">Case Page</h1>
+        </div>
+        <div class="col-6 ">
+            <a href="{% url 'case_create' %}" class="btn btn-primary p-3 float-end"><i class="fa fa-plus"></i> Add New Case</a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table w-75">
+            <thead>
+                <tr>
+                    <th scope="col">Case Number</th>
+                    <th scope="col">Event Date</th>
+                    <th scope="col">Crime Type</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Case Officer</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for case in cases %}
+                    <tr>
+                        <td class="text-capitalize">{{ case.case_number }}</td>
+                        <td class="text-capitalize">{{ case.event_date}}</td>
+                        <td class="text-capitalize">{{ case.crime_type }}</td>
+                        <td class="text-capitalize">{{ case.case_status }}</td>
+                        <td class="text-capitalize">{{ case.case_officer }}</td>
+                        <td>
+                            <a href="{% url 'case_update' case.pk %}">Edit</a> | 
+                            <a href="{% url 'case_delete' case.pk %}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

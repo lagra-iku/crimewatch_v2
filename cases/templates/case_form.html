@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% block title %}Case Form{% endblock %}
+{% block content %}
+<div class="container-fluid p-5">
+    <h1 class="fs-3 mb-3 text-decoration-underline">{{ form.instance.pk|yesno:"Update Case, Book a Case" }}</h1>
+    <form method="post" enctype="multipart/form-data" class="needs-validation mt-5">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_event_date">Event Date:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.event_date }}
+                    </div>
+                </div>
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_crime_type">Crime Type:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.crime_type }}
+                    </div>
+                </div>
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_crime_subcategory">Crime Subcategory:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.crime_subcategory }}
+                    </div>
+                </div>
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_location_of_crime">Location:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.location_of_crime }}
+                    </div>
+                </div>
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_case_description">Case Description:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.case_description }}
+                    </div>
+                </div>
+                <div class="row mb-2 align-items-start d-none" >
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_associated_case_files">Associated case files:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.associated_case_files }}
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_witnesses">Witnesses:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.witnesses }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_known_suspects">Known Suspects:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.known_suspects }}
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_arrested_suspects">Arrested Suspects:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.arrested_suspects}}
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_case_status">Case Status:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.case_status }}
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_pictures_of_evidence">Pictures of Evidence:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.pictures_of_evidence }}
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_case_officer">Case Officer:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.case_officer }}
+                    </div>
+                </div>
+                <div class="float-end mt-4 " role="group" aria-label="Basic example">
+                    <button type="submit" class="btn btn-primary p-3 px-5 fw-bold">Save</button>
+                    <a href="{% url 'case_list' %}" class="btn btn-gray p-3 px-4 fw-bold">Cancel</a>
+                  </div>
+            </div>
+        </div>
+        
+        <!-- {{ form.as_p }} -->
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#id_crime_type').change(function () {
+      var url = "{% url 'ajax_load_subcategories' %}";  // get the url of the `load_cities` view
+      var crimeTypeId = $(this).val();  // get the selected crime type ID from the HTML input
+
+      $.ajax({
+        url: url,
+        data: {
+          'crime_type': crimeTypeId
+        },
+        success: function (data) {
+          $("#id_crime_subcategory").html("");  // clear the existing options in the subcategory dropdown
+
+          // add new options to the subcategory dropdown
+          $.each(data, function (key, value) {
+            $("#id_crime_subcategory").append($('<option></option>').attr('value', value.id).text(value.name));
+          });
+        }
+      });
+    });
+  });
+</script>
+ {% endblock %}
+
+
+
+
+

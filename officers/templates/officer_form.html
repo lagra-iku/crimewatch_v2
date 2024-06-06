@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block title %}Officer Form{% endblock %}
+{% block content %}
+<div class="container-fluid p-5">
+    <h1 class="fs-3 mb-3 text-decoration-underline">{{ form.instance.pk|yesno:"Update Officer, Create Officer" }}</h1>
+    <form method="post" enctype="multipart/form-data" class="needs-validation mt-5">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-8">
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_name">Name:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.name }}
+                    </div>
+                </div>
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_sex">Sex:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.sex }}
+                    </div>
+                </div>
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_rank">Rank:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.rank }}
+                    </div>
+                </div>
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_badge_number">Badge Number:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.badge_number }}
+                    </div>
+                </div>
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_area">Area:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.area }}
+                    </div>
+                </div>
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_date_of_birth">Date of Birth:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.date_of_birth}}
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_phone_number">Phone Number:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.phone_number }}
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_email">Email:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.email }}
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_address">Address:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.address }}
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_city">City:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.city }}
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_state">State:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.state }}
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_nationality">Nationality:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 ">
+                        {{ form.nationality }}
+                    </div>
+                </div>
+                <div class="float-end mt-4 " role="group" aria-label="Basic example">
+                    <button type="submit" class="btn btn-primary p-3 px-5 fw-bold">Save</button>
+                    <a href="{% url 'officer_list' %}" class="btn btn-gray p-3 px-4 fw-bold">Cancel</a>
+                  </div>
+            </div>
+        </div>
+        <div class="col-4">
+
+        </div>
+        <!-- {{ form.as_p }} -->
+    </form>
+</div>
+ {% endblock %}
+
+
+
+

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Criminal list{% endblock %}
+{% block content %}
+<div class="container-fluid p-5">
+    <div class="row mb-5">
+        <div class="col-6">
+            <h1 class="fw-bold fs-2">Officers Page</h1>
+        </div>
+        <div class="col-6 ">
+            <!-- <a href="{% url 'officer_create' %}" class="btn btn-primary p-3 float-end"><i class="fa fa-plus"></i> Add New Officer</a> -->
+        </div>
+    </div>
+    <div class="row">
+        <table class="table w-75">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Badge Number</th>
+                    <th scope="col">Duty Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for officer in officers %}
+                    <tr>
+                        <td class="text-capitalize">{{ officer.name }}</td>
+                        <td class="text-capitalize">{{ officer.sex }}</td>
+                        <td class="text-capitalize">{{ officer.rank }}</td>
+                        <td class="text-capitalize">{{ officer.badge_number }}</td>
+                        <td class="text-capitalize">{{ officer.duty_status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

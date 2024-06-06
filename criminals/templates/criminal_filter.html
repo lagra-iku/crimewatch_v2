@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Criminals{% endblock %}
+{% block content %}
+<div class="container-fluid mt-3">
+    <h1 class="fw-bold fs-4">{{ title }}</h1>
+    <div class="row mt-3">
+        <table class="table w-75">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Case Number</th>
+                    <th scope="col">Date of Arrest</th>
+                    <th scope="col">Is incarcerated</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for criminal in criminals %}
+                    <tr>
+                        <td class="text-capitalize">{{ criminal.first_name }} {{ criminal.surname }}</td>
+                        <td class="text-capitalize">{{ criminal.case_number}}</td>
+                        <td class="">{{ criminal.date_of_arrest }}</td>
+                        <td class="text-capitalize">{{ criminal.is_incarcerated }}</td>
+                        <td>
+                            <a href="{% url 'criminal_update' criminal.pk %}">Edit</a> | 
+                            <a href="{% url 'criminal_delete' criminal.pk %}">Delete</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <p class="text-danger">No criminals in this category</p>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+ {% endblock %}

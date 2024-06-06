@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Delete Criminal{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height:50vh">
+    <div class="text-center">
+        <p class="fs-1">Are you sure you want to delete <span class="text-capitalize fw-bold">{{ criminal.first_name }} {{ criminal.last_name }}</span>?</p>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <button type="submit" class="btn btn-danger p-3">Yes, delete</button>
+                <a href="{% url 'criminal_list' %}" class="btn btn-gray p-3 px-4">Cancel</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+    
+    {% endblock %}

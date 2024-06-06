@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Criminals{% endblock %}
+{% block content %}
+<div class="container-fluid mt-3">
+    <h1 class="fw-bold fs-4">Criminal Records Details for {{ criminal.first_name }} {{ criminal.surname }}</h1>
+    <div class="row mt-3">
+        <div class="col-md-8">
+            <h5 class="fw-bold">Personal Data</h5>
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <img src="{{ criminal.mugshot.url }}" alt="Mugshot of {{ criminal.first_name }} {{ criminal.last_name }}" width="200">                    
+                </div>
+                <div class="col-8">
+                    <p><span class="fw-bold">Name: </span>{{ criminal.first_name }} {{ criminal.last_name }}</p>
+                    <p><span class="fw-bold">Gender: </span>{{ criminal.gender }}</p>
+                    <p><span class="fw-bold">Height: </span>{{ criminal.height_in_meters }}</p>
+                    <p><span class="fw-bold">Weight: </span>{{ criminal.weight_in_kg }}</p>
+                    <p><span class="fw-bold">NIN: </span>{{ criminal.nin }}</p>
+                    <p><span class="fw-bold">Marital Status: </span>{{ criminal.marital_status }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <p><span class="fw-bold">Tribe: </span>{{ criminal.tribe }}</p>
+                <p><span class="fw-bold">Religion: </span>{{ criminal.address }}</p>
+                <p><span class="fw-bold">Address: </span>{{ criminal.address }}</p>
+                <p><span class="fw-bold">Phone Number: </span>{{ criminal.contact_info }}</p>
+            </div>
+
+        </div>
+        <div class="col-4">
+            <h5 class="fw-bold">Status</h5>
+            {% if criminal.is_incarcerated %}
+                <p><i class="fa-solid fa-building-lock fs-1 "></i>  In jail</p>
+            {% else %}
+                <p>Not active</p>
+            {% endif %}
+            <h5 class="fw-bold">Associated Cases</h5>
+            {{ criminal.associated_cases }}
+        </div>
+           
+        </div>
+    </div>
+</div>
+ {% endblock %}

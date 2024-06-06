@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+{% block title %}Criminal Form{% endblock %}
+{% block content %}
+<div class="container-fluid p-5">
+    <h1 class="fs-3 mb-3 text-decoration-underline">{{ form.instance.pk|yesno:"Update Criminal,Create Criminal" }}</h1>
+    <form method="post" enctype="multipart/form-data" class="needs-validation mt-5">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6">
+                <!-- First Name -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_first_name">First Name:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.first_name }}
+                    </div>
+                </div>
+                <!-- Middle Name -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_middle_name">Middle Name:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.middle_name }}
+                    </div>
+                </div>
+                <!-- Surname -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_surname">Surname:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.surname }}
+                    </div>
+                </div>
+                <!-- Date of Birth -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_date_of_birth">Date of Birth:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.date_of_birth }}
+                    </div>
+                </div>
+                <!-- Tribe -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_tribe">Tribe:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.tribe }}
+                    </div>
+                </div>
+                <!-- Crime Committed -->
+                <!-- <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_crime_committed">Crime Committed:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.crime_committed }}
+                    </div>
+                </div> -->
+                <!-- Religion -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_religion">Religion:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.religion }}
+                    </div>
+                </div>
+                <!-- Marital Status -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_marital_status">Marital Status:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.marital_status }}
+                    </div>
+                </div>
+                <!-- Height in Meters -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_height_in_meters">Height (in meters):</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.height_in_meters }}
+                    </div>
+                </div>
+                <!-- Weight in KG -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_weight_in_kg">Weight (in kg):</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.weight_in_kg }}
+                    </div>
+                </div>
+                <!-- Gender -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_gender">Gender:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.gender }}
+                    </div>
+                </div>
+                <!-- NIN -->
+                <div class="row mb-2 align-items-start">
+                    <div class="col-md-5 col-lg-4">
+                        <label class="form-label fw-bold" for="id_nin">NIN:</label>
+                    </div>
+                    <div class="col-md-7 col-lg-8 rounded-top">
+                        {{ form.nin }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+<!-- Address -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_address">Address:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.address }}
+    </div>
+</div>
+<!-- Contact Info -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_contact_info">Phone Number:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.contact_info }}
+    </div>
+</div>
+<!-- Distinctive Features -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_distinctive_features">Distinctive Features:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.distinctive_features }}
+    </div>
+</div>
+<!-- Next of Kin -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_next_of_kin">Next of Kin:</label>
+    </div>
+    <div class="col-md-7 col-lg
+    -8 rounded-top">
+        {{ form.next_of_kin }}
+    </div>
+</div>
+<!-- Asociated Cases -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_associated_case">Associated Cases:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.associated_cases }}
+    </div>
+</div>
+<!-- Finger Print -->
+<!-- <div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_finger_print">Finger Print:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.finger_print }}
+    </div>
+</div> -->
+<!-- Mugshot -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_mugshot">Mugshot:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.mugshot }}
+    </div>
+</div>
+<!-- Known Aliases -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_known_aliases">Known Aliases:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.known_aliases }}
+    </div>
+</div>
+<!-- Associates -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_associates">Associates:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.associates }}
+    </div>
+</div>
+<!-- Arresting Officer -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_arresting_officer">Arresting Officer:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.arresting_officer }}
+    </div>
+</div>
+<!-- Case Number -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_case_number">Case Number:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.case_number }}
+    </div>
+</div>
+<!-- Is Incarcerated -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_is_incarcerated">Is Incarcerated:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.is_incarcerated }}
+    </div>
+</div>
+<!-- Is Wanted -->
+<div class="row mb-2 align-items-start">
+    <div class="col-md-5 col-lg-4">
+        <label class="form-label fw-bold" for="id_is_wanted">Is Wanted:</label>
+    </div>
+    <div class="col-md-7 col-lg-8 rounded-top">
+        {{ form.is_wanted }}
+    </div>
+</div>
+<!-- Submit and Cancel Buttons -->
+<div class="float-end mt-4" role="group" aria-label="Basic example">
+    <button type="submit" class="btn btn-primary p-3 px-5 fw-bold">Save</button>
+    <a href="{% url 'criminal_list' %}" class="btn btn-gray p-3 px-4 fw-bold">Cancel</a>
+</div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

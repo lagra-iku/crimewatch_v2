@@ -1,0 +1,106 @@
+@import url("http://fonts.googleapis.com/css?family=Montserrat:400,300,700");
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+    /* background-color: #FFFFF0 !important; */
+    color: var(--charcoal) !important;
+  }
+
+:root {
+    --dark-slate-gray:#2F4F4F; /* Headers, navigation bar, primary buttons */
+    --dark-khaki: #BDB76B; /*Secondary buttons, background elements, footers */
+    --crimson-red: #DC143C; /*Alerts, notifications, call-to-action buttons */
+    --ivory: ##FFFFF0; /*Page background*/
+    --charcoal: #36454F; /* Primary text*/
+    --dim-gray: #696969; /*Secondary text, placeholder text*/
+    --orange: #FFa500 /*Highlights, links, active states*/
+}
+.navbar{
+    background:black;
+    color: var(--dark-slate-gray) !important;
+    z-index: 2;
+}
+
+p {
+    color: var(--charcoal) !important;
+}
+.text-secondary {
+    color:var(--dim-gray) !important;
+}
+
+.btn-primary {
+    background-color: var(--dark-slate-gray) !important;
+    border-color: var(--dark-slate-gray) !important;
+    
+}
+.btn-secondary {
+    background-color: var(--dark-khaki) !important;
+    color:  var(--ivory) !important;
+    border-color: var(--dark-slate-gray) !important;
+}
+.btn-gray {
+    background-color: #e6e6e6 !important;
+    color:  var(--ivory) !important;
+    border-color: var(--dark-slate-gray) !important;
+}
+.btn-alert {
+    background-color: var(--crimson-red) !important;
+    color: var(--ivory) !important;
+}
+
+.bg-gradient-teal {
+    background: linear-gradient(90deg, black, var(--dark-slate-gray)) !important;
+}
+
+.vert-bar {
+    background-image: linear-gradient(180deg, black, var(--dark-slate-gray)) !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding-top: 100px !important;
+    width: 20% !important;
+    height: 100%;
+    color: white;
+    padding: 20px 0;
+    overflow-x: hidden;
+}
+
+input[type="text"], input[type="number"], input[type="email"], input[type="date"], textarea{
+width:100%;
+border-radius: 5px;
+border: solid 1px #2F4F4F; 
+padding:5px;
+}
+
+select{
+    border-radius: 5px !important;
+    border: solid 1px #2F4F4F; 
+    padding:5px !important;
+    }
+
+.content {
+    width:80% !important;
+    margin: auto 0 0 20%;
+}
+
+
+@media screen and (max-width: 576px) {
+    .content{
+        margin:0;
+        width:100% !important;
+        z-index: 1;
+    }
+    .navbar-collapse {
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        margin-top: 70px;
+        background: black;
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+        min-height: 100vh;
+    }
+
+}    
