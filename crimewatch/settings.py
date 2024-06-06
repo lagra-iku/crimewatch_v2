@@ -30,9 +30,9 @@ LOGOUT_REDIRECT_URL = 'login'
 SECRET_KEY = 'django-insecure-^ncnxw4+41)c3-=q(3w&sj6m^rmf#0pp+x+^hq=)*yrmf_feu%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["crimewatchng-e9a2211ef682.herokuapp.com", "rimewatch.com.ng"]
+ALLOWED_HOSTS = ["crimewatchng-e9a2211ef682.herokuapp.com", "crimewatch.com.ng", '127.0.0.1']
 
 
 # Application definition
@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'crimewatch.middleware.AutoLogoutMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'crimewatch.urls'
@@ -127,8 +128,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 
+
+STATIC_ROOT = BASE_DIR
 STATIC_URL = 'static/'
-STATIC_ROOT = 'staticfiles/' # Here
 STATICFILES_DIRS = [
     BASE_DIR / 'static/'
 ]

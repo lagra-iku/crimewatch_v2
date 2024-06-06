@@ -6,3 +6,4 @@ sqlparse==0.5.0
 tzdata==2024.1
 Gunicorn
 Psycopg2-binary
+whitenoise==6.6.0
